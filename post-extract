@@ -7,8 +7,6 @@ APP="$1"
 TMP_WORK_DIR="$2"
 REV="$3" # optional, may not be sent for tar-based builds
 
-dokku_log_info2 "Monorepo detected"
+dokku_log_info2 "Repo detected $APP"
 
 dokku builder:set "$APP" build-dir apps/$APP
-
-dokku_log_info2 "Repo detected $APP"
