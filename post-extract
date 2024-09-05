@@ -9,6 +9,7 @@ REV="$3" # optional, may not be sent for tar-based builds
 
 [[ ! -f "$TMP_WORK_DIR/.dokku-monorepo" ]] && exit
 
-dokku_log_info2 "Repo detected $APP"
+dokku_log_info2 "Monorepo detected APP=$APP"
 
-dokku docker-options:add $APP build "--build-arg APP=$APP -f apps/$APP/Dockerfile"
+dokku builder:set $APP selected dockerfile
+dokku docker-options:add $APP build "--build-arg APP=$APP -f ./apps/$APP/Dockerfile"
