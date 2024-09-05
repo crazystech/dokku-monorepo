@@ -11,4 +11,4 @@ REV="$3" # optional, may not be sent for tar-based builds
 
 dokku_log_info2 "Repo detected $APP"
 
-dokku builder:set "$APP" build-dir apps/$APP
+dokku docker-options:add $APP build "--build-arg APP=$APP"
